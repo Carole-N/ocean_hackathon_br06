@@ -2,6 +2,7 @@ import numpy as np
 import rasterio
 from rasterio.transform import from_origin
 import os
+import requete_postgre_count_point_interet
 
 
 def lire_metadata_geotiff(tif_file):
@@ -147,6 +148,11 @@ def fusionner_geotiff_multisources(liste_fichiers_sources, fichier_sortie="fusio
     if not donnees_bandes:
         print("❌ Aucune donnée valide à fusionner.")
         return
+
+    data = requete_postgre_count_point_interet()
+    donnees_bandes.append(data)
+    noms_bandes.append("points d'intérets")
+    # print(len(data))
 
     # 3. Appariement automatique des fichiers par année pour calculer les ratios
     print(f"\n🔢 Appariement automatique et calcul des ratios...")
