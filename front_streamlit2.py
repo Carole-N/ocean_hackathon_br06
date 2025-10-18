@@ -10,7 +10,7 @@ def run_streamlit(
     latitude: float, longitude: float, H: float, L: float, tif_path: str, bandes_names
 ):
     if not bandes_names:
-        bandes_names = ["1", "2", "3", "4", "5", "6"]
+        bandes_names = ["1", "2", "3", "4", "5", "6", "7"]
 
     st.set_page_config(layout="wide")
     st.title("Comparaison de deux cartes avec couches raster (TIF)")
@@ -40,7 +40,7 @@ def run_streamlit(
         st.header("Couches - Carte gauche")
         show_bands_left = [
             st.checkbox(f"{bandes_names[i]}", value=False, key=f"left_{i}")
-            for i in range(6)
+            for i in range(7)
         ]
 
     # Sélection bandes carte droite
@@ -48,7 +48,7 @@ def run_streamlit(
         st.header("Couches - Carte droite")
         show_bands_right = [
             st.checkbox(f"{bandes_names[i]}", value=False, key=f"right_{i}")
-            for i in range(6)
+            for i in range(7)
         ]
 
     # Création carte gauche
@@ -123,6 +123,7 @@ def main():
         "summer_2024",
         "winter_2024_25",
         "ratio_2024",
+        "points_interet",
     ]
     run_streamlit(latitude, longitude, H, L, tif_path, bandes_names)
 

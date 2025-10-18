@@ -23,5 +23,14 @@ lancer le fichier `scrappingOsm` : `python3 scrappingOsm.py`
 
 ## Création d'une image Tif multilayer avec les données
 
-lancer le fichier `scrappingOsm` : `python3 test_create_tif_source.py`
+lancer le fichier `create_tif` : `python3 test_create_tif_source.py`
 (ce fichier importe les fonctions de requete_postgre)
+
+Les scripts vont créer un fichier csv du total de points d'intérêts par polygones (grille.csv)
+et une image Tif multilayers (fusion_multisources.tif)
+
+## Affichage d'un front-end streamlit
+
+Un serveur streamlit peut être lancé pour servir les données en html avec la commande :
+`streamlit run front_streamlit2.py`
+Ouvrir un navigateur sur le port indiqué.
