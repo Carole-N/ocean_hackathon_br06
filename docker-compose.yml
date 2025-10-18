@@ -18,7 +18,7 @@ services:
     image: adminer:latest
     container_name: adminer_ui
     ports:
-      - 8080:8080
+      - 8088:8080
     depends_on:
       - postgres
     restart: unless-stopped
